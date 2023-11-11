@@ -1,0 +1,17 @@
+<div class="title">
+    <h1>SongBot</h1>
+</div>
+<div class="chatbox" id="chatbox">
+    <div class="conversation" id="conversation" #conversationRef>
+    <div style="height: 20px;"></div>
+    <ng-container *ngFor="let message of messages">
+        <div class="message" [ngClass]="{from:message.author==='bot', to:message.author==='user'}">
+            {{message.content}}
+        </div>
+    </ng-container>
+    </div>
+    <div class="input" id="input">
+        <input [(ngModel)]="value" (keyup.enter)="sendMessage()" id="chatInput" type="text" placeholder="Type a song name to get recommendation">
+        <button id="button" (click)="sendMessage()">Send</button>
+    </div>
+</div>
